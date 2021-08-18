@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 const express = require('express')
 const app = express()
@@ -11,19 +12,17 @@ const transporter = nodemailer.createTransport({
         pass: process.env.PASSWORD
     }
 })
-console.log(transporter.auth.user)
-console.log(transporter.auth.pass)
 
 // step 2 configuring the mail options
 let mailOptions = {
-    from: process.env.EMAIL,
-    to: 'paulnganfack@gmail.com',
+    from: 'a user',
+    to:  process.env.EMAIL,
     subject: 'Programming Stuff',
-    text: 'Hey there Pablo this is Ajim trying to send u email using a NodeJS program. if I run this script too many times, it will spam you wih a lot of shit.'
+    text: 'this has surely workd now'
 }
 
-// step 3 This one is almost like pressing the "Send Email Button"
-/*
+ //step 3 This one is almost like pressing the "Send Email Button"
+
 transporter.sendMail(mailOptions, (err, data)=>{
     if(err){
         console.error('An Error occured' +err)
@@ -31,6 +30,6 @@ transporter.sendMail(mailOptions, (err, data)=>{
         console.log('The email was sent successfully')
     }
 })
-*/
+
 
 app.listen(3000, ()=> console.log('Runing on port 3000...'))
